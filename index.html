@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>week3 08 hover effect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!------------  Overlay  ------------>
+        <div class="overlay first"></div>
+        <div class="overlay second"></div>
+        <div class="overlay third"></div>
+        <!------------  Navbar  ------------>
+        <nav class="navbar">
+            <div class="menu">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+            <div class="lang">eng</div>
+            <div class="search">
+                <ion-icon name="search-outline"></ion-icon>
+            </div>
+        </nav>
+        
+        <!------------  Social Media  ------------>
+        <div class="media">
+            <ul>
+                <li>facebook</li>
+                <li>instagram</li>
+                <li>twitter</li>
+            </ul>
+        </div>
+
+        <!------------  Text  ------------>
+        <div class="text">
+            <h1>
+                <span class="hidetext">Traveling</span>
+            </h1>
+            <h2>duality</h2>
+            <h3>
+                <span class="hidetext">collection 2020 <br> duality</span>
+            </h3>
+            <p>
+                <span class="hidetext">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet dolorum voluptatem nisi aperiam doloribus ea, quibusdam aspernatur voluptatum dignissimos natus?
+                </span>
+            </p>
+        </div>
+
+        <!------------  Sponsor  ------------>
+        <div class="sponsor">
+            <img src="images/sponsor-logo.png" alt="#">
+            <p>official sponsor</p>
+        </div>
+
+        <!------------  Distortion  ------------>
+        <div class="distortion"></div>
+
+
+    </div>
+
+<!-- icons -->
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<!-- gsap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+  integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
+<!-- three js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js"
+  integrity="sha256-3mBEX8I0uMLF7+AUjJeTCelosuorzYpqwBMBPDTyQqY=" crossorigin="anonymous"></script>
+<!-- hover-effect js -->
+<script src="hover-effect.umd.js"></script>
+
+<script>
+    new hoverEffect({
+      parent: document.querySelector('.distortion'),
+      intensity: 0.2,
+      image1: 'images/01.png',
+      image2: 'images/02.png',
+      displacementImage: 'images/diss.png',
+      imagesRatio: 380 / 300
+    })
+
+    //Navbar
+    TweenMax.staggerFrom(".navbar",1.5,{
+        delay:1.5,
+        opacity:0,
+        y:"20",
+        ease: Expo.easeInOut
+    },0.08);
+
+    //Media
+    TweenMax.staggerFrom(".media ul li",1.5,{
+        delay:1.5,
+        opacity:0,
+        x:"-20",
+        ease: Expo.easeInOut
+    },0.08);
+
+    //Text
+    TweenMax.from(".text h1 .hidetext",1.5,{
+        delay:1,
+        y:"100%",
+        ease: Expo.easeInOut
+    });
+
+    TweenMax.from(".text h3 .hidetext",1.5,{
+        delay:1.2,
+        y:"100%",
+        ease: Expo.easeInOut
+    });
+
+    TweenMax.from(".text p .hidetext",1.5,{
+        delay:1.3,
+        y:"100%",
+        ease: Expo.easeInOut
+    });
+
+    TweenMax.from(".text h2",1.5,{
+        delay:1.5,
+        opacity:0,
+        x:"-10000",
+        ease: Expo.easeInOut
+    });
+
+    //Sponsor
+    TweenMax.from(".sponsor img",1.5,{
+        delay:1.5,
+        opacity:0,
+        y:"20",
+        ease: Expo.easeInOut
+    });
+
+    TweenMax.from(".sponsor p",1.5,{
+        delay:1.6,
+        opacity:0,
+        y:"20",
+        ease: Expo.easeInOut
+    });
+
+    //Distortion
+    TweenMax.from(".distortion",1.5,{
+        delay:2,
+        opacity:0,
+        y:"20",
+        ease: Expo.easeInOut
+    });
+
+    //Overlay
+    TweenMax.to(".first",1.5,{
+        delay:.5,
+        top:"-100%",
+        ease: Expo.easeInOut
+    });
+    TweenMax.to(".second",1.5,{
+        delay:.7,
+        top:"-100%",
+        ease: Expo.easeInOut
+    });
+    TweenMax.to(".third",1.5,{
+        delay:.9,
+        top:"-100%",
+        ease: Expo.easeInOut
+    });
+
+
+
+
+</script>
+
+</body>
+</html>
